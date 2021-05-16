@@ -10,7 +10,7 @@ que existen en su zona habitacional.   Se determinan las categorías así:
 """
 
 #ingreso de datos y definicion de variables
-
+contador=1
 #defino variable para contar el total de personas por categorias
 total_niños=0
 total_jovenes=0
@@ -23,44 +23,63 @@ peso_adultos=0
 peso_viejos=0 
 cuenta=1
 n=int(input("Por favor ingrese la cantidad de personas a encuestar: "))
-#procesamiento de datos
+
+#procesamiento de datos, el sistema ingresara cada individio
 while cuenta<=n:
-    edad=int(input("Por favor ingrese su edad: "))
-    peso=float(input("Por favor ingrese su peso: "))
+    edad=int(input("Por favor ingrese la edad del encuestado "+str(contador)+": "))
+    peso=float(input("Por favor ingrese el peso en kg del encuestado "+str(contador)+": "))
     print("\n")
     if edad>=0 and edad<=12:
-        peso_niños=peso_niños+peso
-        total_niños=total_niños+1
-        cuenta=cuenta+1
+        peso_niños+=peso
+        total_niños+=1
+        cuenta+=1
+        contador+=1
     elif edad>=13 and edad<=29:
-        peso_jovenes=peso_jovenes+peso
-        total_jovenes=total_jovenes+1
-        cuenta=cuenta+1
+        peso_jovenes+=peso
+        total_jovenes+=1
+        cuenta+=1
+        contador+=1
     elif edad>=30 and edad<=59:
-        peso_adultos=peso_adultos+peso
-        total_adultos=total_adultos+1
-        cuenta=cuenta+1
+        peso_adultos+=peso
+        total_adultos+=1
+        cuenta+=1
+        contador+=1
     elif edad>=60:
-        peso_viejos=peso_viejos+peso
-        total_viejos=total_viejos+1
-        cuenta=cuenta+1
+        peso_viejos+=peso
+        total_viejos+=+1
+        cuenta+=1
+        contador+=1
+    else:
+        print=("Dato ingresado no valido para este sistema")
+        contador=n
         
-#salida de datos
+#salida de datos, por categoria
 
+print("Los datos arrojan los siguiente resultados")
+print("Categoria \t No. Encuestados \t Peso Promedio") #elaboro una tabla por categoria utilizando \t
 if total_niños>0:
     promedio_niños=peso_niños/total_niños
-    print("El peso promedio de los niños es:",promedio_niños)
+    print("Niños \t\t\t",str(total_niños)+"\t\t\t",promedio_niños)
+else:
+    print("Niños \t\t\t\t",str(0)+"\t\t\t",0)
 
 if total_jovenes>0:
     promedio_jovenes=peso_jovenes/total_jovenes
-    print("El peso promedio de los jovenes es:",promedio_jovenes)
+    print("Jovenes \t\t",str(total_jovenes)+"\t\t\t",promedio_jovenes)
+else:
+    print("Jovenes \t\t",str(0)+"\t\t\t",0)
 
 if total_adultos>0:
     promedio_adultos=peso_adultos/total_adultos
-    print("El peso promedio de los adultos es:",promedio_adultos)
+    print("Adultos \t\t",str(total_adultos)+"\t\t\t",promedio_adultos)
+else:
+    print("Adultos \t\t",str(0)+"\t\t\t",0)
 
 if total_viejos>0:
     promedio_viejos=peso_viejos/total_viejos
-    print("El peso promedio de los adultos es:",promedio_viejos)
+    print("Viejos \t\t\t",str(total_viejos)+"\t\t\t",promedio_viejos)
+else:
+    print("viejos \t\t\t",str(0)+"\t\t\t",0)
+
 print("\n")  
 print("Gracias por participar en la encuesta")
